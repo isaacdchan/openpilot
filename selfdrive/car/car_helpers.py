@@ -5,6 +5,7 @@ from common.basedir import BASEDIR
 from selfdrive.version import comma_remote, tested_branch
 from selfdrive.car.fingerprints import eliminate_incompatible_cars, all_legacy_fingerprint_cars
 from selfdrive.car.vin import get_vin, VIN_UNKNOWN
+from selfdrive.car.subaru.values import SUBARU_WMI
 from selfdrive.car.fw_versions import get_fw_versions, match_fw_to_car
 from selfdrive.swaglog import cloudlog
 import cereal.messaging as messaging
@@ -110,7 +111,9 @@ def fingerprint(logcan, sendcan):
       _, vin = get_vin(logcan, sendcan, bus)
       cloudlog.warning("Waiting 10 seconds")
       # Subaru needs 10sec delay before FW queries
-      time.sleep(10)
+      for wmi in SUBARU_WMI:
+          if vin.startswith(wmi):
+            time.sleep(10)
       car_fw = get_fw_versions(logcan, sendcan, bus)
 
     exact_fw_match, fw_candidates = match_fw_to_car(car_fw)
