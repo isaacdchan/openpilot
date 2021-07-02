@@ -29,6 +29,7 @@ if __name__ == "__main__":
     for cfg in CONFIGS:
       log_msgs = replay_process(cfg, lr)
       log_fn = os.path.join(process_replay_dir, "%s_%s_%s.bz2" % (segment, cfg.proc_name, ref_commit))
+      print("ref log: " + log_fn)
       save_log(log_fn, log_msgs)
 
       if not no_upload:
