@@ -140,8 +140,6 @@ class CarController():
         if self.es_distance_cnt != CS.es_distance_msg["Counter"]:
           can_sends.append(subarucan.create_es_distance(self.packer, CS.es_distance_msg, pcm_cancel_cmd))
           self.es_distance_cnt = CS.es_distance_msg["Counter"]
-        # do not send duplicate acc cancel using create_brake_pedal for cars that support ES_Distance
-        pcm_cancel_cmd = False
 
       # FIXME: LKAS alerts filtering triggers PCB alerts on Outback 2020
       if CS.CP.carFingerprint == CAR.OUTBACK:
