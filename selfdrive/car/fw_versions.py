@@ -145,7 +145,7 @@ REQUESTS = [
     [MAZDA_VERSION_REQUEST],
     [MAZDA_VERSION_RESPONSE],
     DEFAULT_RX_OFFSET,
-  )
+  ),
   # Subaru
   (
     "subaru",
