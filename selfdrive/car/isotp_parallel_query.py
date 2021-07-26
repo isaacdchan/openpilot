@@ -99,6 +99,7 @@ class IsoTpParallelQuery:
     start_time = time.time()
     while True:
       self.rx()
+      start_time = time.time()
 
       if all(request_done.values()):
         break
@@ -120,6 +121,7 @@ class IsoTpParallelQuery:
           else:
             results[tx_addr] = dat[len(expected_response):]
             request_done[tx_addr] = True
+            cloudlog.warning(f"iso-tp query good response: {hex(tx_addr[0])} 0x{dat.hex()}")
         else:
           request_done[tx_addr] = True
           cloudlog.warning(f"iso-tp query bad response: {hex(tx_addr[0])} 0x{dat.hex()}")
