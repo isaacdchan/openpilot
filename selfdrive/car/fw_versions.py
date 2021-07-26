@@ -11,7 +11,6 @@ from cereal import car
 from selfdrive.car.fingerprints import FW_VERSIONS, get_attr_from_cars
 from selfdrive.car.isotp_parallel_query import IsoTpParallelQuery
 from selfdrive.car.toyota.values import CAR as TOYOTA
-from selfdrive.car.subaru.values import SUBARU_WMI
 from selfdrive.swaglog import cloudlog
 
 Ecu = car.CarParams.Ecu
@@ -355,11 +354,13 @@ if __name__ == "__main__":
   print("Getting VIN took %.3f s" % (time.time() - t))
   print()
 
+  '''
   for wmi in SUBARU_WMI:
     if vin.startswith(wmi):
       cloudlog.warning("Subaru 10 second ECU init delay")
       time.sleep(10.)
       break
+  '''
 
   t = time.time()
   fw_vers = get_fw_versions(logcan, sendcan, 1, extra=extra, debug=args.debug, progress=True)
