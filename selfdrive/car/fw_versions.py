@@ -363,7 +363,7 @@ if __name__ == "__main__":
   '''
 
   t = time.time()
-  fw_vers = get_fw_versions(logcan, sendcan, 1, extra=extra, debug=args.debug, progress=True)
+  fw_vers = get_fw_versions(logcan, sendcan, 1, extra=extra, debug=args.debug, progress=True, timeout = 0.7)
   _, candidates = match_fw_to_car(fw_vers)
 
   print()

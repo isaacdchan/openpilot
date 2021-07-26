@@ -116,7 +116,7 @@ def fingerprint(logcan, sendcan):
           time.sleep(10)
           break
       '''
-      car_fw = get_fw_versions(logcan, sendcan, bus, timeout=1.0)
+      car_fw = get_fw_versions(logcan, sendcan, bus, timeout=0.7)
 
     exact_fw_match, fw_candidates = match_fw_to_car(car_fw)
   else:
