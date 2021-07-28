@@ -99,7 +99,6 @@ class IsoTpParallelQuery:
     start_time = time.time()
     while True:
       self.rx()
-      start_time = time.time()
 
       if all(request_done.values()):
         break
