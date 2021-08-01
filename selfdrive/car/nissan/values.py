@@ -58,8 +58,8 @@ FINGERPRINTS = {
 }
 
 FW_VERSIONS = {
-  CAR.LEAF: {
-    # 2018 Leaf - UDM / @razemio
+  CAR.LEAF_IC: {
+    # 2018 Leaf IC - UDM / @razemio
     # Ecu, addr, subaddr
     (Ecu.eps, 0x742, None): [
       b'5SH2A\x99A\x05\x02N123F\x15\x81\x00\x00\x00\x00\x00\x00\x00\x80',
